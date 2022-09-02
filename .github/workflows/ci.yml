@@ -5,14 +5,8 @@ on:
     branches:
       - 'master'
 jobs:   
-  build:    
-    runs-on: ubuntu-latest 
-    env:      
-      DOCKER_REGISTRY: docker.io
-      DOCKER_IMAGE: qweraqq/dnscrypt-proxy
-      DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USER }}
-      DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
-      DOCKER_TARGET_PLATFORM: linux/arm64               
+  buildx:    
+    runs-on: ubuntu-latest       
     steps:
       -
         name: Checkout
