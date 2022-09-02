@@ -94,7 +94,7 @@ disabled_server_names = []
 ## (dnscrypt-proxy will always encrypt everything even using UDP), and can
 ## only increase latency.
 
-force_tcp = false
+force_tcp = true
 
 
 ## Enable support for HTTP/3 (DoH3, HTTP over QUIC)
@@ -125,7 +125,7 @@ http3 = false
 timeout = 5000
 
 
-## Keepalive for HTTP (HTTPS, HTTP/2) queries, in seconds
+## Keepalive for HTTP (HTTPS, HTTP/2, HTTP/3) queries, in seconds
 
 keepalive = 30
 
@@ -248,7 +248,7 @@ cert_refresh_delay = 240
 ## not be sent there. If you're using DNSCrypt or Anonymized DNS and your
 ## lists are up to date, these resolvers will not even be used.
 
-bootstrap_resolvers = ['9.9.9.11:53', '8.8.8.8:53']
+bootstrap_resolvers = ['119.29.29.29:53', '223.5.5.5:53']
 
 
 ## Always use the bootstrap resolver before the system DNS settings.
@@ -274,7 +274,7 @@ netprobe_timeout = 60
 ## On other operating systems, the connection will be initialized
 ## but nothing will be sent at all.
 
-netprobe_address = '9.9.9.9:53'
+netprobe_address = '119.29.29.29:53'
 
 
 ## Offline mode - Do not use any remote encrypted servers.
@@ -297,10 +297,10 @@ netprobe_address = '9.9.9.9:53'
 ## Automatic log files rotation
 
 # Maximum log files size in MB - Set to 0 for unlimited.
-log_files_max_size = 10
+log_files_max_size = 1
 
 # How long to keep backup files, in days
-log_files_max_age = 7
+log_files_max_age = 1
 
 # Maximum log files backups to keep (or 0 to keep all backups)
 log_files_max_backups = 1
