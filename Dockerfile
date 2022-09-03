@@ -20,15 +20,12 @@ COPY dnscrypt-proxy.toml ./
 
 # ----------------------------------------------------------------------------
 
-FROM scratch
+FROM alpine:latest
 
-COPY --from=build /etc/passwd /etc/group /etc/
 COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
 COPY --from=build /go/src/github.com/DNSCrypt/dnscrypt-proxy/dnscrypt-proxy /usr/local/bin/
-COPY --from=build --chown=nobody:nogroup /config /config
-
-USER nobody
+COPY --from=build /config /config
 
 ENTRYPOINT [ "dnscrypt-proxy" ]
 
